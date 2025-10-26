@@ -7,7 +7,7 @@ import {
     Link,
     TextField,
 } from '@mui/material'
-import { loginFunction } from '../../../../utils/src/homehub-utils'
+import { loginFunction } from '@homehub/react-utils'
 
 type FormData = {
     email: string
