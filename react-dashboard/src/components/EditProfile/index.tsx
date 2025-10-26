@@ -1,12 +1,12 @@
 import { useForm } from 'react-hook-form'
 import { Box, Button, TextField } from '@mui/material'
 import {
+    AuthInfo,
     checkIsAuthenticated,
     editAuthInfo,
-} from '../../../../utils/src/homehub-utils'
-import { AuthInfo } from '../../../../utils/src/types/AuthInfo'
+} from '@homehub/react-utils'
 
-type FormData = Omit<AuthInfo, 'authId'>
+type FormData = Omit<typeof AuthInfo, 'authId'>
 
 const EditProfile = () => {
     const { authInfo } = checkIsAuthenticated()
