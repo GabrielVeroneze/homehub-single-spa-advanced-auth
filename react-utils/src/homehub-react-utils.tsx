@@ -9,3 +9,29 @@ export const loginFunction = (email: AuthInfo['email']) => {
 
     location.replace(`/dashboard/${authId}/`)
 }
+
+export const logoutFunction = () => {
+    const cookies = new Cookies(null, { path: '/' })
+
+    cookies.remove('auth')
+
+    return location.replace('/')
+}
+
+export const checkIsAuthenticated = () => {
+    const cookies = new Cookies(null, { path: '/' })
+
+    const auth = cookies.get('auth')
+
+    if (!auth) {
+        return { authInfo: undefined, isAuthenticated: false }
+    }
+
+    const authObj: AuthInfo = JSON.parse(auth)
+
+    if (!location.pathname.includes(authObj.authId)) {
+        return { authInfo: undefined, isAuthenticated: false }
+    }
+
+    return { authInfo: authObj, isAuthenticated: true }
+}
