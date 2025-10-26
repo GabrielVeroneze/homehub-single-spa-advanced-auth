@@ -1,8 +1,7 @@
 import { useEffect, useState } from 'react'
 import { AppBar, Box, Button, Drawer, IconButton, Toolbar } from '@mui/material'
 import { AccountCircle, Notifications } from '@mui/icons-material'
-import { checkIsAuthenticated } from '../../utils/src/homehub-utils'
-import { AuthInfo } from '../../utils/src/types/AuthInfo'
+import { AuthInfo, checkIsAuthenticated } from '@homehub/react-utils'
 import DrawerMenu from './components/DrawerMenu'
 import UserMenu from './components/UserMenu'
 import HomeHubLogo from './assets/home-hub.png'
@@ -10,7 +9,7 @@ import HomeHubLogo from './assets/home-hub.png'
 const App = () => {
     const [anchorEl, setAnchorEl] = useState<null | HTMLElement>(null)
     const [drawerOpen, setDrawerOpen] = useState<boolean>(false)
-    const [authInfo, setAuthInfo] = useState<AuthInfo>()
+    const [authInfo, setAuthInfo] = useState<typeof AuthInfo>()
 
     useEffect(() => {
         const { authInfo: authObj, isAuthenticated } = checkIsAuthenticated()

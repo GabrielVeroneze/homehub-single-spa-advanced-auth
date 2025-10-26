@@ -1,14 +1,13 @@
 import { useEffect, useState } from 'react'
 import { Box, Container, Grid } from '@mui/material'
-import { checkIsAuthenticated } from '../../utils/src/homehub-utils'
-import { AuthInfo } from '../../utils/src/types/AuthInfo'
+import { AuthInfo, checkIsAuthenticated } from '@homehub/react-utils'
 import EditProfile from './components/EditProfile'
 import HeroCard from './components/HeroCard'
 import UsersCard from './components/UsersCard'
 import WaterCard from './components/WaterCard'
 
 const App = () => {
-    const [authInfo, setAuthInfo] = useState<AuthInfo>()
+    const [authInfo, setAuthInfo] = useState<typeof AuthInfo>()
 
     useEffect(() => {
         const { authInfo: authObj, isAuthenticated } = checkIsAuthenticated()
