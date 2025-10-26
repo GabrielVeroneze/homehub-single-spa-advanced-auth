@@ -1,5 +1,11 @@
-import { AuthInfo } from './types/AuthInfo'
 import Cookies from 'universal-cookie'
+
+export interface AuthInfo {
+    email: string
+    authId: string
+    firstName?: string
+    lastName?: string
+}
 
 export const loginFunction = (email: AuthInfo['email']) => {
     const authId = crypto.randomUUID()
