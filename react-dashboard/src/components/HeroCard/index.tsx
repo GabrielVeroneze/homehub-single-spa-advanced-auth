@@ -1,5 +1,5 @@
 import { Box, Typography } from '@mui/material'
-import { checkIsAuthenticated } from '../../../../utils/src/homehub-utils'
+import { checkIsAuthenticated } from '@homehub/react-utils'
 import Card from '@mui/material/Card'
 import CardContent from '@mui/material/CardContent'
 import VisaoGeral from '../../assets/visao-geral.png'
