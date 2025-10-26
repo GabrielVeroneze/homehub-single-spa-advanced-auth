@@ -21,17 +21,33 @@ export const logoutFunction = () => {
 export const checkIsAuthenticated = () => {
     const cookies = new Cookies(null, { path: '/' })
 
-    const auth = cookies.get('auth')
+    const auth: AuthInfo = cookies.get('auth')
 
     if (!auth) {
         return { authInfo: undefined, isAuthenticated: false }
     }
 
-    const authObj: AuthInfo = JSON.parse(auth)
-
-    if (!location.pathname.includes(authObj.authId)) {
+    if (!location.pathname.includes(auth.authId)) {
         return { authInfo: undefined, isAuthenticated: false }
     }
 
-    return { authInfo: authObj, isAuthenticated: true }
+    return { authInfo: auth, isAuthenticated: true }
+}
+
+export const editAuthInfo = (data: AuthInfo) => {
+    const cookies = new Cookies(null, { path: '/' })
+
+    const auth: AuthInfo = cookies.get('auth')
+
+    if (!location.pathname.includes(auth.authId)) {
+        alert('Você não tem permissão para editar este usuário')
+
+        return logoutFunction()
+    }
+
+    cookies.set('auth', data)
+
+    alert('Usuário editado com sucesso')
+
+    return
 }
