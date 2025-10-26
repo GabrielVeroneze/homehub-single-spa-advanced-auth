@@ -43,7 +43,7 @@ const EditProfile = () => {
                 label="Email"
                 variant="standard"
                 error={!!errors.email}
-                helperText={errors.email?.message}
+                helperText={errors.email?.message as string}
                 {...register('email', {
                     required: 'O e-mail é obrigatório.',
                     pattern: {
@@ -57,7 +57,7 @@ const EditProfile = () => {
                 label="Nome"
                 variant="standard"
                 error={!!errors.firstName}
-                helperText={errors.firstName?.message}
+                helperText={errors.firstName?.message as string}
                 {...register('firstName')}
             />
             <TextField
@@ -65,7 +65,7 @@ const EditProfile = () => {
                 label="Sobrenome"
                 variant="standard"
                 error={!!errors.lastName}
-                helperText={errors.lastName?.message}
+                helperText={errors.lastName?.message as string}
                 {...register('lastName')}
             />
             <Button
