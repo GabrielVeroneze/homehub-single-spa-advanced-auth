@@ -1,5 +1,6 @@
 import { Box, Grid } from '@mui/material'
 import HeroCard from '../../components/HeroCard'
+import AirConditionerCard from '../../components/AirConditionerCard'
 
 const Devices = () => {
     return (
@@ -18,6 +19,9 @@ const Devices = () => {
                         title="Dispositivos"
                         subtitle="Controle seus dispositivos de perto ou de longe!"
                     />
+                </Grid>
+                <Grid size={4}>
+                    <AirConditionerCard />
                 </Grid>
             </Grid>
         </Box>
