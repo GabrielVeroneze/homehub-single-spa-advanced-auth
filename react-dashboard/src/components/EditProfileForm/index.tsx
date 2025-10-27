@@ -8,7 +8,7 @@ import {
 
 type FormData = Omit<typeof AuthInfo, 'authId'>
 
-const EditProfile = () => {
+const EditProfileForm = () => {
     const { authInfo } = checkIsAuthenticated()
 
     const {
@@ -80,4 +80,4 @@ const EditProfile = () => {
     )
 }
 
-export default EditProfile
+export default EditProfileForm
