@@ -1,9 +1,18 @@
 import { Box, Grid } from '@mui/material'
+import { checkIsAuthenticated } from '@homehub/react-utils'
 import HeroCard from '../../components/HeroCard'
 import UsersCard from '../../components/UsersCard'
 import WaterCard from '../../components/WaterCard'
 
 const Dashboard = () => {
+    const { authInfo } = checkIsAuthenticated()
+
+    const heroCardTitle = `Olá, ${
+        !!authInfo?.firstName
+            ? `${authInfo?.firstName} ${authInfo?.lastName}`
+            : authInfo?.email
+    }!`
+
     return (
         <Box
             width={2 / 3}
@@ -16,7 +25,10 @@ const Dashboard = () => {
         >
             <Grid container spacing={2} sx={{ flexGrow: 1 }}>
                 <Grid size={12}>
-                    <HeroCard />
+                    <HeroCard
+                        title={heroCardTitle}
+                        subtitle="Confira as informações da sua casa inteligente!"
+                    />
                 </Grid>
                 <Grid size={4}>
                     <UsersCard />
