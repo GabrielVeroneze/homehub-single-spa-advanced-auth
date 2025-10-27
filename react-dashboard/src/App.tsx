@@ -1,10 +1,6 @@
 import { useEffect, useState } from 'react'
-import { Box, Container, Grid } from '@mui/material'
 import { AuthInfo, checkIsAuthenticated } from '@homehub/react-utils'
-import EditProfile from './components/EditProfile'
-import HeroCard from './components/HeroCard'
-import UsersCard from './components/UsersCard'
-import WaterCard from './components/WaterCard'
+import { DashboardRoutes } from './routes'
 
 const App = () => {
     const [authInfo, setAuthInfo] = useState<typeof AuthInfo>()
@@ -20,54 +16,7 @@ const App = () => {
         setAuthInfo(authObj)
     }, [])
 
-    return (
-        <div id="single-spa-application:react-dashboard">
-            {location.pathname.includes('edit-profile') ? (
-                <Container
-                    maxWidth={false}
-                    sx={{ maxWidth: 578 }}
-                    disableGutters
-                >
-                    <Box
-                        sx={{
-                            bgcolor: '#F5F5F5',
-                            mt: '10vh',
-                            borderRadius: '24px',
-                            display: 'flex',
-                            alignItems: 'center',
-                            flexDirection: 'column',
-                            p: 7,
-                            pt: 5,
-                        }}
-                    >
-                        <EditProfile />
-                    </Box>
-                </Container>
-            ) : (
-                <Box
-                    width={2 / 3}
-                    my={4}
-                    display="flex"
-                    alignItems="center"
-                    gap={4}
-                    p={2}
-                    sx={{ margin: 'auto' }}
-                >
-                    <Grid container spacing={2} sx={{ flexGrow: 1 }}>
-                        <Grid size={12}>
-                            <HeroCard />
-                        </Grid>
-                        <Grid size={4}>
-                            <UsersCard />
-                        </Grid>
-                        <Grid size={4}>
-                            <WaterCard />
-                        </Grid>
-                    </Grid>
-                </Box>
-            )}
-        </div>
-    )
+    return <DashboardRoutes />
 }
 
 export default App
