@@ -14,7 +14,11 @@ const drawerItems = [
         icon: <SpaceDashboard />,
         path: (id: string) => `/dashboard/${id}/`,
     },
-    { label: 'Dispositivos', icon: <Wifi /> },
+    {
+        label: 'Dispositivos',
+        icon: <Wifi />,
+        path: (id: string) => `/dashboard/${id}/devices`,
+    },
     { label: 'Segurança', icon: <Lock /> },
     { label: 'Configurações', icon: <Settings /> },
 ]
